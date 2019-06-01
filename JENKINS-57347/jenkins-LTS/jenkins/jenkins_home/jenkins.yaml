@@ -1,0 +1,76 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent RSA key"
+          id: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          privateKeySource:
+            directEntry:
+              privateKey: "{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}"
+          scope: GLOBAL
+          username: "jenkins"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  clouds:
+  - docker:
+      dockerApi:
+        dockerHost:
+          uri: "unix:///var/run/docker.sock"
+      name: "docker-attach"
+      templates:
+      - connector:
+          attach:
+            user: "jenkins"
+        dockerTemplateBase:
+          image: "jenkins/ssh-slave:jdk11"
+        instanceCapStr: "10"
+        labelString: "docker-agent"
+        remoteFs: "/home/jenkins"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        sSHLauncher:
+          credentialsId: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          host: "ssh-agent"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "ssh-agent"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: false
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  remotingCLI:
+    enabled: false
+  sSHD:
+    port: -1

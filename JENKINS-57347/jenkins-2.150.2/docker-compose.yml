@@ -1,0 +1,52 @@
+version: "2.4"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    mem_limit: 1000m
+    cpus: 0.5
+    privileged: true
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8080"]
+      retries: 10
+      interval: 20s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      ssh-test:
+        aliases:
+          - jenkins
+
+  ssh-agent:
+    container_name: ssh-agent
+    build:
+      context: ./ssh-agent
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      ssh-test:
+        aliases:
+          - ssh-agent
+
+networks:
+  ssh-test:
