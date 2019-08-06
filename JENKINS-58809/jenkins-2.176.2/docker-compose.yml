@@ -1,0 +1,81 @@
+version: "2.4"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    mem_limit: 1000m
+    cpus: 0.5
+    privileged: true
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8080"]
+      retries: 10
+      interval: 20s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      network-test:
+        aliases:
+          - jenkins
+
+  saml:
+    container_name: saml
+    build:
+      context: ./simplesamlphp
+      dockerfile: Dockerfile
+    environment:
+      - SIMPLESAMLPHP_ADMIN_PASSWORD=admin
+      - SIMPLESAMLPHP_SP_ENTITY_ID=http://jenkins.example.com:8080/securityRealm/finishLogin
+      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://jenkins.example.com:8080/securityRealm/finishLogin
+      - SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://jenkins.example.com:8080/logout
+    mem_limit: 1000m
+    cpus: 0.5
+    privileged: true
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    ports:
+      - 80:80
+    healthcheck:
+      test: ["CMD-SHELL", "curl -Ls http://localhost/simplesaml"]
+      retries: 10
+      interval: 20s
+    networks:
+      network-test:
+        aliases:
+          - saml
+
+  ssh-agent:
+    container_name: ssh-agent
+    build:
+      context: ./ssh-agent
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+networks:
+  network-test:

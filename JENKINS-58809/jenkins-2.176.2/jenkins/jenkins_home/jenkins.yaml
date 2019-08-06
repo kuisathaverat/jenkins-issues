@@ -1,0 +1,117 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent RSA key"
+          id: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          privateKeySource:
+            directEntry:
+              privateKey: "-----BEGIN OPENSSH PRIVATE KEY----- \n
+              b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn \n
+              NhAAAAAwEAAQAAAQEAphHoUhk5APCwqeCS/eUqMoLfiV4F15E9sw9njGWkor4ttmoPj7SC \n
+              yZ6ETi1M4AliPvUN84kw1ebF6o5J8+o2si8Gc8rfch318s3e6I6axYfDIZWFlsxsF5i4BK \n
+              t4PGwnamBS6y7pXo8lINbfz9ps9KpHsJN5lo10uXCa/Vjb7vhkfB2qd4XAzg6PCEoc6BGo \n
+              sASuM1nn++oa6Ps8poTJ6LfvA1WUeYh9nYjWCocM1cdl0ApvZVZ4Jr3WhCSuxRaVFl9erc \n
+              8m7ILPBWhPyc3yXuGcbFxdo+Pknec1OBvY980Aomot662WdOdgu3GKR72ioNaEqHMAGTYZ \n
+              bND2w7729QAAA9gkFLAmJBSwJgAAAAdzc2gtcnNhAAABAQCmEehSGTkA8LCp4JL95Soygt \n
+              +JXgXXkT2zD2eMZaSivi22ag+PtILJnoROLUzgCWI+9Q3ziTDV5sXqjknz6jayLwZzyt9y \n
+              HfXyzd7ojprFh8MhlYWWzGwXmLgEq3g8bCdqYFLrLulejyUg1t/P2mz0qkewk3mWjXS5cJ \n
+              r9WNvu+GR8Hap3hcDODo8IShzoEaiwBK4zWef76hro+zymhMnot+8DVZR5iH2diNYKhwzV \n
+              x2XQCm9lVngmvdaEJK7FFpUWX16tzybsgs8FaE/JzfJe4ZxsXF2j4+Sd5zU4G9j3zQCiai \n
+              3rrZZ052C7cYpHvaKg1oSocwAZNhls0PbDvvb1AAAAAwEAAQAAAQEAh6txhECe1SnM6btR \n
+              2qHxCzrnq61oUGeTZEldatFO4rVDWxbih6AMiPI7XDKd7xk7bft83kxh3R2e6rQ7rkzVSl \n
+              QojUhbqzrWxvlw9cQqpNz4iONCM6PlWpGlJAuBOruQp9Lxarj0Zg/DYUSpq4DiKi9CSfrx \n
+              BhGiHizkMbz6UArDot20wsqjjHuhpDJtQYi8VCa2EDTIOVuSibLkfSMEvH2cpt/lI4Cs+V \n
+              tsYPknKfAG8ij6IGgTdczXqgUYRB5yKOMJR0KKxp0IVNjFcg5u8GXbskPuXNyMN96G/ii9 \n
+              2aZhuo5B+GFWmFMApGUMp62T2vax9vTEXwSt4+4pxQ4DMQAAAIEAvr1tjMb5c691YWHG0b \n
+              hIKL8aHRLNydgMvF6l6rlz3GzEzZ+pyxJB4G/I/nl799fOXL7BHCHbE24/U3xA6kC/1ccI \n
+              f7Ab31LOq+FFc2L78bmfrr/W8paPcsZbxOsdqiTmLBEu/e3xgEJUer2om2ZWTc0OCQfRU0 \n
+              JSZygDrKC78VcAAACBANhnR6wmIw8vRioqyuSKj9+erBEbc0pKakm7aS+ePUSbOr2prhUB \n
+              dqGKuQ4E6dVYxjBpyDA3ZhsYHhVQV78U+NyLMtVC2X2hyBG6afjMJSF6L3YnUNQ7UYaxk/ \n
+              VoiDz08jMupBIHvdwRKu7EjDoYc529bFlsyU73YmAcRL5Hl0HrAAAAgQDEdOr+1Pl4nDRo \n
+              J9uq8tn8L+Aq1ypM6hzmBObrz385uDNECKwz7LW6XSvTcC0eiIqftbVEvQwiisTLZuHUd0 \n
+              ybTajOc4dkDPkOfhLQC1De0pRyUEr5bM3ESGweTIvh7IifH/bbusL/XmRxPZOyst1UM2f3 \n
+              B9Z4BfSim/rf+V+SnwAAAB1pbmlmY0BUaGUtdG94aWMtYXZlbmdlci5sb2NhbAECAwQ= \n
+              -----END OPENSSH PRIVATE KEY----- \n"
+          scope: GLOBAL
+          username: "jenkins"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  clouds:
+  - docker:
+      dockerApi:
+        dockerHost:
+          uri: "unix:///var/run/docker.sock"
+      name: "docker-attach"
+      templates:
+      - connector:
+          attach:
+            user: "jenkins"
+        dockerTemplateBase:
+          image: "jenkins/ssh-slave:jdk11"
+        instanceCapStr: "10"
+        labelString: "docker-agent"
+        remoteFs: "/home/jenkins"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          host: "ssh-agent"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "ssh-agent"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  securityRealm:
+    saml:
+      binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      displayNameAttributeName: "displayName"
+      emailAttributeName: "mail"
+      groupsAttributeName: "groups"
+      idpMetadataConfiguration:
+        period: 0
+        url: "http://saml/simplesaml/saml2/idp/metadata.php"
+      maximumAuthenticationLifetime: 86400
+      usernameAttributeName: "uid"
+      usernameCaseConversion: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  sSHD:
+    port: -1
+unclassified:
+  location:
+    adminAddress: "admin@example.com"
+    url: "http://jenkins.example.com:8080/"
