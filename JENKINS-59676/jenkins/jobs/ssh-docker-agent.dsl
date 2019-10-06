@@ -12,6 +12,7 @@ pipelineJob('testjobs/ssh-docker-agent') {
             }
           }
         }""".stripIndent())
+        sandbox(true)
     }
   }
 }

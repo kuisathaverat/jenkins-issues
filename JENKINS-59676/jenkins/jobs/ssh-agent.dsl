@@ -12,6 +12,7 @@ pipelineJob('testjobs/ssh-agent') {
             }
           }
         }""".stripIndent())
+        sandbox(true)
     }
   }
 }

@@ -1,4 +1,4 @@
-pipelineJob('testjobs/ssh-agent') {
+pipelineJob('testjobs/ssh-agent-git') {
   definition {
     cps {
       script("""\
@@ -12,6 +12,7 @@ pipelineJob('testjobs/ssh-agent') {
             }
           }
         }""".stripIndent())
+        sandbox(true)
     }
   }
 }

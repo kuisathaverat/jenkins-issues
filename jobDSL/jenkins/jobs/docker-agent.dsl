@@ -12,6 +12,7 @@ pipelineJob('testjobs/docker-agent') {
             }
           }
         }""".stripIndent())
+        sandbox(true)
     }
   }
 }
