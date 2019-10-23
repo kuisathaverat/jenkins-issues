@@ -10,7 +10,8 @@ RUN chown -R root:root /root/ \
   && chmod 600 /root/.ssh/*
 RUN ssh-keygen -A
 RUN sed -i /etc/ssh/sshd_config \
-        -e 's/PermitRootLogin.*/PermitRootLogin yes/'
+        -e 's/PermitRootLogin.*/PermitRootLogin yes/'\
+        -e 's/PasswordAuthentication.*/PasswordAuthentication yes/'
 RUN echo "password\npassword" | passwd root \
   && echo "password\npassword" | passwd jenkins
 

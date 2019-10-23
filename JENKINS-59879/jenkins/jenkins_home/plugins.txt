@@ -1,0 +1,9 @@
+git
+job-dsl
+saml
+docker
+pipeline-model-definition
+configuration-as-code
+timestamper
+jdk-tool
+yet-another-docker-plugin
