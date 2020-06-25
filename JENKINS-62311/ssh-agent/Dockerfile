@@ -11,6 +11,10 @@ RUN chown -R root:root /root/ \
 RUN ssh-keygen -A
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/PermitRootLogin.*/PermitRootLogin yes/'
+RUN echo "PubkeyAcceptedKeyTypes ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521" >> /etc/ssh/sshd_config
+RUN echo "HostbasedAcceptedKeyTypes ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521" >> /etc/ssh/sshd_config
+RUN echo "HostKeyAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521" >> /etc/ssh/sshd_config
+
 RUN echo "password\npassword" | passwd root \
   && echo "password\npassword" | passwd jenkins
 
