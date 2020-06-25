@@ -5,6 +5,8 @@ services:
     build:
       context: ./jenkins
       dockerfile: Dockerfile
+      args:
+        - TAG=${JENKINS_VERSION}
     environment:
       JAVA_OPTS: >-
         -Djenkins.install.runSetupWizard=false

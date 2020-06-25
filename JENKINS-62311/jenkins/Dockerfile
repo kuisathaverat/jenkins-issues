@@ -1,5 +1,5 @@
-ARG JENKINS_VERSION=2.241
-FROM jenkins/jenkins:${JENKINS_VERSION}
+ARG TAG=2.241
+FROM jenkins/jenkins:${TAG}
 USER root
 COPY ./jenkins_home/* /usr/share/jenkins/ref/
 COPY ./jobs /usr/share/jenkins/ref/jobs
