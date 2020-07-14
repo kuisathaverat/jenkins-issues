@@ -1,4 +1,4 @@
-ARG TAG=2.241
+ARG TAG=2.244
 FROM jenkins/jenkins:${TAG}
 USER root
 COPY ./jenkins_home/* /usr/share/jenkins/ref/

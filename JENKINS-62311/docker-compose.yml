@@ -34,7 +34,7 @@ services:
   ssh-agent-dsa:
     container_name: ssh-agent-dsa
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-dsa
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -56,7 +56,7 @@ services:
   ssh-agent-rsa:
     container_name: ssh-agent-rsa
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-rsa
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -78,7 +78,7 @@ services:
   ssh-agent-ec:
     container_name: ssh-agent-ec
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-ec
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -100,7 +100,7 @@ services:
   ssh-agent-ed25519:
     container_name: ssh-agent-ed25519
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-ed25519
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -122,7 +122,7 @@ services:
   ssh-agent-rsa-256:
     container_name: ssh-agent-rsa-256
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-rsa256
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -144,7 +144,7 @@ services:
   ssh-agent-rsa-512:
     container_name: ssh-agent-rsa-512
     build:
-      context: ./ssh-agent
+      context: ./ssh-agent-rsa512
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
