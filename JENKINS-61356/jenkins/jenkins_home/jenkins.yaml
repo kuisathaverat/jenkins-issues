@@ -3,60 +3,179 @@ credentials:
     domainCredentials:
     - credentials:
       - basicSSHUserPrivateKey:
-          description: "ssh-agent RSA key"
-          id: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          description: "ssh-agent RSA key Private key format"
+          id: "private-key-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                -----BEGIN PRIVATE KEY-----
+                MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQCI4foxY6cYQQZY
+                k1XC0FYAf2HgV855Wy2u2O7uMyED0ynZVvdlqPdlHKg0CzytYqgjXCPjVVS1T2GM
+                7I5OZh79jUvyXjfWAevERilldPTf0amMdOHI7ufRDXID5JPhI93wQll1rAzjMm7U
+                iAbFRVTRRADKit76dBdiRuaxENqKMqwDAL9anl1EqjT3NLb6T1L/XYBzFygoukI1
+                p3iDgKMTuZ/HvmBrYZhWqc84xkZw/+uH61FgaU+/JHquhpJuOwhb6yI4NrjTNs3A
+                AOarm6Erw5c1XvWrYZr2P6oF2bxtYTo3zakQF94zEBGKnyhisI03t0rVLITgqfsy
+                glUzTEDivwWOoIIQnmNk1GWl28kNS/yKkaRFfDs0FtTtQCMNhL3Yn9LTjQnB/c/D
+                RGiC2jOA/SQ0Zxs2up6t/argEDJCOU8Yh5ZY9d8j56DBos5jPK3se17X+7esIGZK
+                hjyxYLv18395FL7ptVGUIltC1ngJGrzJzJqp+PihuMvp+8xd0E4iDss6wc/87sdk
+                6+HiUQV+Fph4vl4MycQxri7IDQ2XmwIXFYhvoJtwzbMNnP4pBsSdcfaPXAMdk3s2
+                zhl8KvVPn5cGXXMmnVPrtd9KPsy9cg2AJbKHtwXQY3gHzVZH78zJzmrbQ0d3x2Bg
+                vt51o0deWtwSBgWJC5+vlAY2b23vMwIDAQABAoICABO9cbKABQpjN5I8LoDUQPrR
+                uUs8TnXuLMCLigAcVoAHNVX3C+GDbv4MFm5pn8aqChu4qiJFiDGc24a9Bz64zRz9
+                V1JXZ7pQokVhZY87QSR/8hwOhRB68j+8g9CaPQCZsWQjJWSUux0Or7CtrJBJZynF
+                9/k9nVoatilBlqY6tdF6l5eCmutAwwGSgZCURROvBIX4NXx40/KfqHRgDOn7T0lF
+                Gozt4FjMBRybtjB2rj+V4KEZfK2oh6Fwlif8weRCANAaBjV7dXGxnxVilowb+wUP
+                2rVjLDmaxK62JVkHpVFUKqxT197kGkgHOAhjhdRJqBaSCSmElzsRDb1N0hH+Rq2r
+                yiNGNeppfdZrm28/0l3GpeXU7EfaQJQPERoUdQ9Z7tqa/HpZ/VHplXfEZfqUMAQa
+                ZY5ZTz/tbvtbMUayqhy2K+0fHP3eGd75QBl1XSx4va6txqJ99JQ22pG52Q4S/YgN
+                vkG9FpZCZ8a0O/x3TGgG4nSAVQCHKXiLQkyyurUaYUcXuHWHUHVJ6miM3BFZPpiQ
+                A5HfzzSeqkh6i0dltu5FKQ7xh6zZuyq2uWxLf2pPtLDmb9qZyRZiOq9MeirnBZsI
+                YWu84cuem9THFpVxL8x0J+nuaTheohNdqTApaFQ+KrIwtKwZmQV3vziqGcTfhuDQ
+                bLRqPLg8CJKLxIwnrovpAoIBAQDBdTNih8XbLzYCGCFBOOnnxeCeLOQX0rEL2x8w
+                2L9MK2wXUq0I/qisb/cWv0bf6oOF+VqrP27jXnxqWYdrXrlyLr4os53FjkpTtss7
+                krddKB+uF6GZ/QJgC9R0PrxycjeWklmV2VRUdwtXLHF7wdY/zDqCbNtD79fF1Icd
+                h4CBIsK+mHVq6H8DPgAP4zlt4iXTpiQyuRoJ7LLNgSJP3O9klD/Pm9bDYrGMNJWe
+                EHo7xK6zxm/3xtfXXUJeWv0AHdxdhDBOGKz8Fn1rzyh2smYwhKNTCIy71FH7PavB
+                zfACvDzttXqxD4ysG7FMrtZ972qnDpPt3PkI0+T0RMk8N6jbAoIBAQC1Io374sFF
+                /49+vXPnBn/h/pcz87R6v17FHXcIi+IE69luIShZeywgqq2R0hctD5cZOzMdPcA/
+                QbmoiVnNGH7hB+5W1C+sEpNm8rugVkwlmb4QOSbYW4ac46qOrXZFywETCgU504C4
+                cj0q6AMzFBS+v1540B06DoHxMSCBWdj8kCKd4+yNr/GIm0f1sA7Kyej3/Wg9n6w7
+                oCv+KNyH6AZXMeizcz90LMIcpeSMKnTtnckyima4aA7NvChrmvU29B/atA1r2m/L
+                pTdZ0Cg3Z30cWlIoZLwjx5JXSvkTuNaD8E2VY47x9Q7O9KkNzORGwvm2Ppet4pEn
+                vi7O5IvjMVaJAoIBAFkQeCO4lmKejaLRMR4x8Z3+/7ZSvIArQ89NhkKaxxduNklW
+                istFUqpwsbULQrn74algb1m/znFnIqhjp3DLH11uH6Xla5F0PMvlsBMxLLH6svsX
+                bhLS5LELQThzWZbm9qifoBbZA3YPiG0NzQFI8DZW8+jv7NKOLSyq97mklIjfVAEj
+                d4tMlo0LkkO+PMZWA0w5hRjFFzPSgU8TUJSsBpqrleUivfEeEteVrfwjYeL6XePu
+                S8YrCVvhV5jREwFmvflfzk1mFt3IDN4BdYOQBnP33KlxmjkvOr8MWXLUONdJilN1
+                5ZJ2sjDaXvoK1D0OaG+YyooL3asuwo2izXKnvVkCggEACe2C6rNa9IM1UjUADUGF
+                8NULZIWO9stWXmdnBsjj8nEa0bZvh7gAiynPqZZiPs4D8hYUjx27U7w+eMZObbdR
+                /PN6VLf8hOnfulzDe94+/jCXAjyfrGwXzLGNv5QyT1D5FhoOf0TgYTuhrqBYzIvl
+                Ny819lkxwOTaqmWO6ogKJI2h2BWN+ZYTHvGj2At2RBcc9bql4/rEbeAxiRSkQa6t
+                6kmJ/4vphmyNlxRgmm4ZSozDYknDp4fMh+owLPWpSwHGXS5RLgAi8H51si5+hcre
+                SJeKuTwMM8nUc4RgcnxHBaQ+HFoAk7JixWUTfvYj7Nzy4tI7bgRlAFCkMCLGqAUk
+                QQKCAQEAry8FFw9v+u/g6s0DpIU0/lW0t2xM2dOH/Rd3c1YZ0sA8Y6rLSDIiqYp/
+                HYW+yH3t2+Rm/8XWMHD/r8eiopn5IjpWrKoYB2A804F2ZWXPZzTbMIVPQILkAk0f
+                90x9ZtBtjn6Xum97ET3h/IiC6vmtKvmR/etNXQRojz93SSjlNbAe69WD4+sYg+uM
+                L+anZ2fBqXbxu0nDxOdcyMrZ0lcDgc8b5ufUrCNXjm9XbP6mgUX+Dxg/z1PMnl0Q
+                LMCxLuTJKJYBL4CUX/b8EhHV8t9tULaeXQ35Vkutcj57KDnHRR2rWJxyX51SvH1m
+                rTBQz7j8RTwCn2OIdl8mX0LS/XF3LA==
+                -----END PRIVATE KEY-----
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent RSA key OpenSSH format"
+          id: "openssh-format"
           privateKeySource:
             directEntry:
               privateKey: |
                 -----BEGIN OPENSSH PRIVATE KEY-----
                 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
-                NhAAAAAwEAAQAAAgEAw28ByAmyptYP+DPKa1Jt1aBrRT77fFzpwZfojG1fHQ1Xf1jbq4L+
-                1V9mruwyWTy6zBaftEgr1gq6vFh677VOtQJyj7bxeDRogoZhfG/M5tGnqqtHwqFNtcrTkn
-                yGYQM6EjBh8l36ECCfeSgY2urHBtFKJKAWbCscHOHrPS5+sfk9mI6WTQig2cqGiTimxyZ6
-                6eoA8oFmsKW1PaA+fHA9ok/Z7TpIdsx8JXB/fjSWcfYv4axNijNxERRYfc/K0c8xIFk6Tf
-                Pm930nE3aJr18SyRY6Q6vZ8Vk+XHyRdT1BikirgfxRwWgbJG9urC8tlC5sosZzIl4P6uua
-                MrzjSqepLIjBSLHCaF6avkVH0XoK3JpE4htwOILDyr5phgryx71/0efWPtYCnezvZZBeRs
-                WtGcLB6+S0qiJfr1SBYFMEVwo71FsVV5mPLf77reP6LKZ6pLIO+UJSV28aVIqjyzXVv/5y
-                gp87WlpD464PWRajDLMu0Eucg1vE6mE84Tbl8KVGLQ4DKxvM6+bVhcXboSyA3OcXl6eTnB
-                1GgZHHDmBl1+RFLyIEa7xsfB8/Bri+o/kGdAeebBfN/sBJTbefr2a9HIs8gs3c8SOClliB
-                9Q0ak/ADCYrTM+gV4y10aXhXWTApm0LuARTUk3VdEowJYnrJMq7dhpF9L5OdQtoGeOK6Vx
-                kAAAdYLKKMHiyijB4AAAAHc3NoLXJzYQAAAgEAw28ByAmyptYP+DPKa1Jt1aBrRT77fFzp
-                wZfojG1fHQ1Xf1jbq4L+1V9mruwyWTy6zBaftEgr1gq6vFh677VOtQJyj7bxeDRogoZhfG
-                /M5tGnqqtHwqFNtcrTknyGYQM6EjBh8l36ECCfeSgY2urHBtFKJKAWbCscHOHrPS5+sfk9
-                mI6WTQig2cqGiTimxyZ66eoA8oFmsKW1PaA+fHA9ok/Z7TpIdsx8JXB/fjSWcfYv4axNij
-                NxERRYfc/K0c8xIFk6TfPm930nE3aJr18SyRY6Q6vZ8Vk+XHyRdT1BikirgfxRwWgbJG9u
-                rC8tlC5sosZzIl4P6uuaMrzjSqepLIjBSLHCaF6avkVH0XoK3JpE4htwOILDyr5phgryx7
-                1/0efWPtYCnezvZZBeRsWtGcLB6+S0qiJfr1SBYFMEVwo71FsVV5mPLf77reP6LKZ6pLIO
-                +UJSV28aVIqjyzXVv/5ygp87WlpD464PWRajDLMu0Eucg1vE6mE84Tbl8KVGLQ4DKxvM6+
-                bVhcXboSyA3OcXl6eTnB1GgZHHDmBl1+RFLyIEa7xsfB8/Bri+o/kGdAeebBfN/sBJTbef
-                r2a9HIs8gs3c8SOClliB9Q0ak/ADCYrTM+gV4y10aXhXWTApm0LuARTUk3VdEowJYnrJMq
-                7dhpF9L5OdQtoGeOK6VxkAAAADAQABAAACAQCdlq+LDDbgzRAHhkudCtTCRB77sXO8rndX
-                whSk17SwioeZip9nx7ORfuIf/xoCVzQRSdTx3Jhsei5lnbtT+5FB6H1UYaKI2UnEpnOJke
-                VZ4oke2Ap/aO5uvuSn5H2/UIjNDfKNKzZvNr8hRTH1pQdj+fOdYPFzu7dpmsrDhPBotp/y
-                mlecOm7p76NYlzP0tpS6dhTZd3rEynpA/Swlz6QDc/w4jJzOHsmkrvg/XkxKDMhDY1sLK7
-                vql8tbd+kGEdp9STX4kcoWmvadfSI9JZ7SQ3gsBTEyqlHc5h2suf5VcY/Kuxl5qWbplGlb
-                spdAO8ch4oAIoGyZc+3dJ+7nzhZdBihhVQvKZTRmXWpLhb+VMoocM9O3J40KLQX0fcgdzE
-                tluYOhAPnqL/uEJpG1QGJ59EAOrG3z7UeF2PWBjEAQ/rWIrIEox5sFwu9zNpWrLZ5VXu9X
-                98jEM4hT+RGvr+WMvhEqniH4DpL7D86wXrgi0pfxU1cOLUAxls43Ufz5rUcscu1kNmDCiU
-                M+p+ejtigRPRQ60GPVb3azR+ZYJOFsTo0deuRVSJBv9D2AFYnEEdeNJKLeK7TYBNarn+E/
-                MTvMlRbhFpXqEPBUYePdBf4NgzvAOe7lmBiiSjh1PXAokItq6O8CPCC0BI+QzSDTAM0eDG
-                ONobypCSqTIOM70Pp3WQAAAQEA3eNq1D9+H9PINpFePUd4eKhaejkU9sVDRPG6ZFvXFBda
-                oYBmIFv6SlrCBTiD2LRXszuf6kmIOKmiimqPSpAws9SthmjNovVaxEg0Cj4XwNv7JTTGoE
-                VaawZInKlQf22NlwquGdJ0L3LUylUfouTmnS9cIhkVzsmxR0d2m+XrdbTxz1FgxgHZlkbf
-                gcTfiXYLvAEUVNvke0n1IKisaQ7RjbLAINYIb6LFAD69IbxwlWSZvBsmdpj7Pr7vai0zml
-                ZZc5Xz5VqsDqG0vszUIAAZf2yX6DOjDJEMqk8DEyfrujDB38x43/8EpfxOva7K+dMfcOGL
-                0L2VBrH7AQCo2tELAwAAAQEA+ArUcffu8lMveMcrvNEB2VB69loJkxmJajSq8NWcptUwQ5
-                /wQUZ2Q9D4gi8PFpIQmRMrikW8aFkCRdizMiB0LMbPMYQKOVDfoJWle2s+fnwqbvdPKSmA
-                d450/B3QYS/c8RQp9YRSciOKJLQ4/vt4UyuqfuwO3JTDgq/sL3pBP9gTs/ZuSzHg47D9WY
-                omNvECtbeAr/DyWEJRtWEOmTyqjcDSXwaSn2oPYwc5VgTxAMIf/+8sa+lpdmzNzhWG9yER
-                auLGMNpkNvLocRghF5ljcOS7gvkoM+JTthUPTe/nZXIaGr1OI2/NYz6zne1AHk9qsQV9xw
-                CVh5VULW7JAWGOrwAAAQEAybQaLX5YNLPH3/atoBtK1H14/c9MHKXglrK9xDPrRKlwi5ZH
-                bYzUnG2mAREdul1wd9SKtxdkGtYmgCnDh4+3RcpSKqdMdiZtTe6QGJqz+GqCc9KA28J/9m
-                kGqZ04C3gp5YedvGHFWoYDZFtO/1f4nmSdWYyIR4GeXOFacpCNNr8inQ5v7YVsaTPmOM2N
-                sCn/7w9YlbDgiFYhAWkR95OXFCTLZ5dGWN3Wni0unVxwcMjLcy3B80hi0pApV7QnDFYI+K
-                FTDzQsBmOSG0PkmEu4iWHRLRbJD7fYgQTEXy4vboVXB5HAxcznwuhA+EZlG3mLaV593GPE
-                LG5qiPJZT+4otwAAACBpbmlmY0BUaGUtdG94aWMtYXZlbmdlci1JSS5sb2NhbAE=
+                NhAAAAAwEAAQAAAgEAiOH6MWOnGEEGWJNVwtBWAH9h4FfOeVstrtju7jMhA9Mp2Vb3Zaj3
+                ZRyoNAs8rWKoI1wj41VUtU9hjOyOTmYe/Y1L8l431gHrxEYpZXT039GpjHThyO7n0Q1yA+
+                ST4SPd8EJZdawM4zJu1IgGxUVU0UQAyore+nQXYkbmsRDaijKsAwC/Wp5dRKo09zS2+k9S
+                /12AcxcoKLpCNad4g4CjE7mfx75ga2GYVqnPOMZGcP/rh+tRYGlPvyR6roaSbjsIW+siOD
+                a40zbNwADmq5uhK8OXNV71q2Ga9j+qBdm8bWE6N82pEBfeMxARip8oYrCNN7dK1SyE4Kn7
+                MoJVM0xA4r8FjqCCEJ5jZNRlpdvJDUv8ipGkRXw7NBbU7UAjDYS92J/S040Jwf3Pw0Rogt
+                ozgP0kNGcbNrqerf2q4BAyQjlPGIeWWPXfI+egwaLOYzyt7Hte1/u3rCBmSoY8sWC79fN/
+                eRS+6bVRlCJbQtZ4CRq8ycyaqfj4objL6fvMXdBOIg7LOsHP/O7HZOvh4lEFfhaYeL5eDM
+                nEMa4uyA0Nl5sCFxWIb6CbcM2zDZz+KQbEnXH2j1wDHZN7Ns4ZfCr1T5+XBl1zJp1T67Xf
+                Sj7MvXINgCWyh7cF0GN4B81WR+/Myc5q20NHd8dgYL7edaNHXlrcEgYFiQufr5QGNm9t7z
+                MAAAc4u5CEbLuQhGwAAAAHc3NoLXJzYQAAAgEAiOH6MWOnGEEGWJNVwtBWAH9h4FfOeVst
+                rtju7jMhA9Mp2Vb3Zaj3ZRyoNAs8rWKoI1wj41VUtU9hjOyOTmYe/Y1L8l431gHrxEYpZX
+                T039GpjHThyO7n0Q1yA+ST4SPd8EJZdawM4zJu1IgGxUVU0UQAyore+nQXYkbmsRDaijKs
+                AwC/Wp5dRKo09zS2+k9S/12AcxcoKLpCNad4g4CjE7mfx75ga2GYVqnPOMZGcP/rh+tRYG
+                lPvyR6roaSbjsIW+siODa40zbNwADmq5uhK8OXNV71q2Ga9j+qBdm8bWE6N82pEBfeMxAR
+                ip8oYrCNN7dK1SyE4Kn7MoJVM0xA4r8FjqCCEJ5jZNRlpdvJDUv8ipGkRXw7NBbU7UAjDY
+                S92J/S040Jwf3Pw0RogtozgP0kNGcbNrqerf2q4BAyQjlPGIeWWPXfI+egwaLOYzyt7Hte
+                1/u3rCBmSoY8sWC79fN/eRS+6bVRlCJbQtZ4CRq8ycyaqfj4objL6fvMXdBOIg7LOsHP/O
+                7HZOvh4lEFfhaYeL5eDMnEMa4uyA0Nl5sCFxWIb6CbcM2zDZz+KQbEnXH2j1wDHZN7Ns4Z
+                fCr1T5+XBl1zJp1T67XfSj7MvXINgCWyh7cF0GN4B81WR+/Myc5q20NHd8dgYL7edaNHXl
+                rcEgYFiQufr5QGNm9t7zMAAAADAQABAAACABO9cbKABQpjN5I8LoDUQPrRuUs8TnXuLMCL
+                igAcVoAHNVX3C+GDbv4MFm5pn8aqChu4qiJFiDGc24a9Bz64zRz9V1JXZ7pQokVhZY87QS
+                R/8hwOhRB68j+8g9CaPQCZsWQjJWSUux0Or7CtrJBJZynF9/k9nVoatilBlqY6tdF6l5eC
+                mutAwwGSgZCURROvBIX4NXx40/KfqHRgDOn7T0lFGozt4FjMBRybtjB2rj+V4KEZfK2oh6
+                Fwlif8weRCANAaBjV7dXGxnxVilowb+wUP2rVjLDmaxK62JVkHpVFUKqxT197kGkgHOAhj
+                hdRJqBaSCSmElzsRDb1N0hH+Rq2ryiNGNeppfdZrm28/0l3GpeXU7EfaQJQPERoUdQ9Z7t
+                qa/HpZ/VHplXfEZfqUMAQaZY5ZTz/tbvtbMUayqhy2K+0fHP3eGd75QBl1XSx4va6txqJ9
+                9JQ22pG52Q4S/YgNvkG9FpZCZ8a0O/x3TGgG4nSAVQCHKXiLQkyyurUaYUcXuHWHUHVJ6m
+                iM3BFZPpiQA5HfzzSeqkh6i0dltu5FKQ7xh6zZuyq2uWxLf2pPtLDmb9qZyRZiOq9Meirn
+                BZsIYWu84cuem9THFpVxL8x0J+nuaTheohNdqTApaFQ+KrIwtKwZmQV3vziqGcTfhuDQbL
+                RqPLg8CJKLxIwnrovpAAABAQCvLwUXD2/67+DqzQOkhTT+VbS3bEzZ04f9F3dzVhnSwDxj
+                qstIMiKpin8dhb7Ife3b5Gb/xdYwcP+vx6KimfkiOlasqhgHYDzTgXZlZc9nNNswhU9Agu
+                QCTR/3TH1m0G2Ofpe6b3sRPeH8iILq+a0q+ZH9601dBGiPP3dJKOU1sB7r1YPj6xiD64wv
+                5qdnZ8GpdvG7ScPE51zIytnSVwOBzxvm59SsI1eOb1ds/qaBRf4PGD/PU8yeXRAswLEu5M
+                kolgEvgJRf9vwSEdXy321Qtp5dDflWS61yPnsoOcdFHatYnHJfnVK8fWatMFDPuPxFPAKf
+                Y4h2XyZfQtL9cXcsAAABAQDBdTNih8XbLzYCGCFBOOnnxeCeLOQX0rEL2x8w2L9MK2wXUq
+                0I/qisb/cWv0bf6oOF+VqrP27jXnxqWYdrXrlyLr4os53FjkpTtss7krddKB+uF6GZ/QJg
+                C9R0PrxycjeWklmV2VRUdwtXLHF7wdY/zDqCbNtD79fF1Icdh4CBIsK+mHVq6H8DPgAP4z
+                lt4iXTpiQyuRoJ7LLNgSJP3O9klD/Pm9bDYrGMNJWeEHo7xK6zxm/3xtfXXUJeWv0AHdxd
+                hDBOGKz8Fn1rzyh2smYwhKNTCIy71FH7PavBzfACvDzttXqxD4ysG7FMrtZ972qnDpPt3P
+                kI0+T0RMk8N6jbAAABAQC1Io374sFF/49+vXPnBn/h/pcz87R6v17FHXcIi+IE69luIShZ
+                eywgqq2R0hctD5cZOzMdPcA/QbmoiVnNGH7hB+5W1C+sEpNm8rugVkwlmb4QOSbYW4ac46
+                qOrXZFywETCgU504C4cj0q6AMzFBS+v1540B06DoHxMSCBWdj8kCKd4+yNr/GIm0f1sA7K
+                yej3/Wg9n6w7oCv+KNyH6AZXMeizcz90LMIcpeSMKnTtnckyima4aA7NvChrmvU29B/atA
+                1r2m/LpTdZ0Cg3Z30cWlIoZLwjx5JXSvkTuNaD8E2VY47x9Q7O9KkNzORGwvm2Ppet4pEn
+                vi7O5IvjMVaJAAAAAAEC
                 -----END OPENSSH PRIVATE KEY-----
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent RSA key RSA Private Key format"
+          id: "rsa-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIJKAIBAAKCAgEAiOH6MWOnGEEGWJNVwtBWAH9h4FfOeVstrtju7jMhA9Mp2Vb3
+                Zaj3ZRyoNAs8rWKoI1wj41VUtU9hjOyOTmYe/Y1L8l431gHrxEYpZXT039GpjHTh
+                yO7n0Q1yA+ST4SPd8EJZdawM4zJu1IgGxUVU0UQAyore+nQXYkbmsRDaijKsAwC/
+                Wp5dRKo09zS2+k9S/12AcxcoKLpCNad4g4CjE7mfx75ga2GYVqnPOMZGcP/rh+tR
+                YGlPvyR6roaSbjsIW+siODa40zbNwADmq5uhK8OXNV71q2Ga9j+qBdm8bWE6N82p
+                EBfeMxARip8oYrCNN7dK1SyE4Kn7MoJVM0xA4r8FjqCCEJ5jZNRlpdvJDUv8ipGk
+                RXw7NBbU7UAjDYS92J/S040Jwf3Pw0RogtozgP0kNGcbNrqerf2q4BAyQjlPGIeW
+                WPXfI+egwaLOYzyt7Hte1/u3rCBmSoY8sWC79fN/eRS+6bVRlCJbQtZ4CRq8ycya
+                qfj4objL6fvMXdBOIg7LOsHP/O7HZOvh4lEFfhaYeL5eDMnEMa4uyA0Nl5sCFxWI
+                b6CbcM2zDZz+KQbEnXH2j1wDHZN7Ns4ZfCr1T5+XBl1zJp1T67XfSj7MvXINgCWy
+                h7cF0GN4B81WR+/Myc5q20NHd8dgYL7edaNHXlrcEgYFiQufr5QGNm9t7zMCAwEA
+                AQKCAgATvXGygAUKYzeSPC6A1ED60blLPE517izAi4oAHFaABzVV9wvhg27+DBZu
+                aZ/GqgobuKoiRYgxnNuGvQc+uM0c/VdSV2e6UKJFYWWPO0Ekf/IcDoUQevI/vIPQ
+                mj0AmbFkIyVklLsdDq+wrayQSWcpxff5PZ1aGrYpQZamOrXRepeXgprrQMMBkoGQ
+                lEUTrwSF+DV8eNPyn6h0YAzp+09JRRqM7eBYzAUcm7Ywdq4/leChGXytqIehcJYn
+                /MHkQgDQGgY1e3VxsZ8VYpaMG/sFD9q1Yyw5msSutiVZB6VRVCqsU9fe5BpIBzgI
+                Y4XUSagWkgkphJc7EQ29TdIR/katq8ojRjXqaX3Wa5tvP9JdxqXl1OxH2kCUDxEa
+                FHUPWe7amvx6Wf1R6ZV3xGX6lDAEGmWOWU8/7W77WzFGsqoctivtHxz93hne+UAZ
+                dV0seL2urcaiffSUNtqRudkOEv2IDb5BvRaWQmfGtDv8d0xoBuJ0gFUAhyl4i0JM
+                srq1GmFHF7h1h1B1SepojNwRWT6YkAOR3880nqpIeotHZbbuRSkO8Yes2bsqtrls
+                S39qT7Sw5m/amckWYjqvTHoq5wWbCGFrvOHLnpvUxxaVcS/MdCfp7mk4XqITXakw
+                KWhUPiqyMLSsGZkFd784qhnE34bg0Gy0ajy4PAiSi8SMJ66L6QKCAQEAwXUzYofF
+                2y82AhghQTjp58XgnizkF9KxC9sfMNi/TCtsF1KtCP6orG/3Fr9G3+qDhflaqz9u
+                4158almHa165ci6+KLOdxY5KU7bLO5K3XSgfrhehmf0CYAvUdD68cnI3lpJZldlU
+                VHcLVyxxe8HWP8w6gmzbQ+/XxdSHHYeAgSLCvph1auh/Az4AD+M5beIl06YkMrka
+                CeyyzYEiT9zvZJQ/z5vWw2KxjDSVnhB6O8Sus8Zv98bX111CXlr9AB3cXYQwThis
+                /BZ9a88odrJmMISjUwiMu9RR+z2rwc3wArw87bV6sQ+MrBuxTK7Wfe9qpw6T7dz5
+                CNPk9ETJPDeo2wKCAQEAtSKN++LBRf+Pfr1z5wZ/4f6XM/O0er9exR13CIviBOvZ
+                biEoWXssIKqtkdIXLQ+XGTszHT3AP0G5qIlZzRh+4QfuVtQvrBKTZvK7oFZMJZm+
+                EDkm2FuGnOOqjq12RcsBEwoFOdOAuHI9KugDMxQUvr9eeNAdOg6B8TEggVnY/JAi
+                nePsja/xiJtH9bAOysno9/1oPZ+sO6Ar/ijch+gGVzHos3M/dCzCHKXkjCp07Z3J
+                MopmuGgOzbwoa5r1NvQf2rQNa9pvy6U3WdAoN2d9HFpSKGS8I8eSV0r5E7jWg/BN
+                lWOO8fUOzvSpDczkRsL5tj6XreKRJ74uzuSL4zFWiQKCAQBZEHgjuJZino2i0TEe
+                MfGd/v+2UryAK0PPTYZCmscXbjZJVorLRVKqcLG1C0K5++GpYG9Zv85xZyKoY6dw
+                yx9dbh+l5WuRdDzL5bATMSyx+rL7F24S0uSxC0E4c1mW5vaon6AW2QN2D4htDc0B
+                SPA2VvPo7+zSji0sqve5pJSI31QBI3eLTJaNC5JDvjzGVgNMOYUYxRcz0oFPE1CU
+                rAaaq5XlIr3xHhLXla38I2Hi+l3j7kvGKwlb4VeY0RMBZr35X85NZhbdyAzeAXWD
+                kAZz99ypcZo5Lzq/DFly1DjXSYpTdeWSdrIw2l76CtQ9DmhvmMqKC92rLsKNos1y
+                p71ZAoIBAAntguqzWvSDNVI1AA1BhfDVC2SFjvbLVl5nZwbI4/JxGtG2b4e4AIsp
+                z6mWYj7OA/IWFI8du1O8PnjGTm23UfzzelS3/ITp37pcw3vePv4wlwI8n6xsF8yx
+                jb+UMk9Q+RYaDn9E4GE7oa6gWMyL5TcvNfZZMcDk2qpljuqICiSNodgVjfmWEx7x
+                o9gLdkQXHPW6peP6xG3gMYkUpEGurepJif+L6YZsjZcUYJpuGUqMw2JJw6eHzIfq
+                MCz1qUsBxl0uUS4AIvB+dbIufoXK3kiXirk8DDPJ1HOEYHJ8RwWkPhxaAJOyYsVl
+                E372I+zc8uLSO24EZQBQpDAixqgFJEECggEBAK8vBRcPb/rv4OrNA6SFNP5VtLds
+                TNnTh/0Xd3NWGdLAPGOqy0gyIqmKfx2Fvsh97dvkZv/F1jBw/6/HoqKZ+SI6Vqyq
+                GAdgPNOBdmVlz2c02zCFT0CC5AJNH/dMfWbQbY5+l7pvexE94fyIgur5rSr5kf3r
+                TV0EaI8/d0ko5TWwHuvVg+PrGIPrjC/mp2dnwal28btJw8TnXMjK2dJXA4HPG+bn
+                1KwjV45vV2z+poFF/g8YP89TzJ5dECzAsS7kySiWAS+AlF/2/BIR1fLfbVC2nl0N
+                +VZLrXI+eyg5x0Udq1iccl+dUrx9Zq0wUM+4/EU8Ap9jiHZfJl9C0v1xdyw=
+                -----END RSA PRIVATE KEY-----
           scope: GLOBAL
           username: "jenkins"
 jenkins:
@@ -103,14 +222,46 @@ jenkins:
       labelString: "ssh-agent"
       launcher:
         ssh:
-          credentialsId: "12187fc5-6f2d-4343-ad41-7a4a8c683b85"
+          credentialsId: "private-key-format"
           host: "ssh-agent"
           launchTimeoutSeconds: 210
           maxNumRetries: 10
           port: 22
           retryWaitTime: 15
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-      name: "ssh-agent"
+      name: "ssh-agent-private-key-format(fail)"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "openssh-format"
+          host: "ssh-agent"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "ssh-agent-openssh-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "rsa-private-format"
+          host: "ssh-agent"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "ssh-agent-rsa-private-format"
       nodeDescription: "SSH agent"
       numExecutors: 1
       remoteFS: "/home/jenkins"

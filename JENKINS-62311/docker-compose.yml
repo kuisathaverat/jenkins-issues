@@ -1,0 +1,166 @@
+version: "2.4"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+      args:
+        - TAG=${JENKINS_VERSION}
+    environment:
+      JAVA_OPTS: >-
+        -Djenkins.install.runSetupWizard=false
+        -Dhudson.model.UsageStatistics.disabled=true
+    mem_limit: 1000m
+    cpus: 0.5
+    privileged: true
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8080"]
+      retries: 10
+      interval: 20s
+    user: jenkins
+    networks:
+      network-test:
+        aliases:
+          - jenkins
+
+  ssh-agent-dsa:
+    container_name: ssh-agent-dsa
+    build:
+      context: ./ssh-agent-dsa
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+  ssh-agent-rsa:
+    container_name: ssh-agent-rsa
+    build:
+      context: ./ssh-agent-rsa
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+  ssh-agent-ec:
+    container_name: ssh-agent-ec
+    build:
+      context: ./ssh-agent-ec
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+  ssh-agent-ed25519:
+    container_name: ssh-agent-ed25519
+    build:
+      context: ./ssh-agent-ed25519
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+  ssh-agent-rsa-256:
+    container_name: ssh-agent-rsa-256
+    build:
+      context: ./ssh-agent-rsa256
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+
+  ssh-agent-rsa-512:
+    container_name: ssh-agent-rsa-512
+    build:
+      context: ./ssh-agent-rsa512
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent
+networks:
+  network-test:

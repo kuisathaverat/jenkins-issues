@@ -1,0 +1,3 @@
+PubkeyAcceptedKeyTypes=+ssh-dss
+HostbasedAcceptedKeyTypes=+ssh-dss
+HostKeyAlgorithms=+ssh-dss
