@@ -8,6 +8,8 @@ export JENKINS_VERSION=$(JENKINS_TAG)
 .PHONY: help
 help:
 	@echo "Targets:"
+	@echo "you need to add the entry '127.0.0.1 jenkins.example.com' to yout /etc/hosts file"
+	@echo "http://jenkins.example.com:8080 should be the Jenkins URL"
 	@echo ""
 	@grep '^## @help' Makefile|cut -d ":" -f 2-3|( (sort|column -s ":" -t) || (sort|tr ":" "\t") || (tr ":" "\t"))
 
