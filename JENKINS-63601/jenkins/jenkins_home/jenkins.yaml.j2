@@ -1,0 +1,261 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          id: "local-id-rsa"
+          passphrase: "{{ ID_RSA_PASSWORD }}"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ ID_RSA | indent(width=16) }}
+          scope: GLOBAL
+          username: "{{ ID_RSA_USER }}"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent RSA key RSA Private Key format"
+          id: "rsa-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_RSA | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent DSA"
+          id: "dsa-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_DSA | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent EC"
+          id: "ec-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_EC | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent ed25519"
+          id: "ed25519-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_ED25519 | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent rsa-256"
+          id: "rsa-256-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_RSA256 | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+      - basicSSHUserPrivateKey:
+          description: "ssh-agent rsa-512"
+          id: "rsa-512-private-format"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                {{ PRIVATE_KEY_RSA512 | indent(width=16) }}
+          scope: GLOBAL
+          username: "jenkins"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  clouds:
+  - docker:
+      dockerApi:
+        dockerHost:
+          uri: "unix:///var/run/docker.sock"
+      name: "docker-attach"
+      templates:
+      - connector:
+          attach:
+            user: "jenkins"
+        dockerTemplateBase:
+          image: "jenkins/ssh-agent:jdk11"
+        instanceCapStr: "10"
+        labelString: "docker-agent"
+        remoteFs: "/home/jenkins"
+      - connector:
+          ssh:
+            sshKeyStrategy:
+              injectSSHKey:
+                user: "jenkins"
+        dockerTemplateBase:
+          image: "jenkins/ssh-agent:jdk11"
+        instanceCapStr: "10"
+        labelString: "ssh-docker-agent"
+        name: "ssh-docker-agent"
+        pullStrategy: PULL_ALWAYS
+        pullTimeout: 300
+        remoteFs: "/home/jenkins"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "rsa-private-format"
+          host: "ssh-agent-rsa"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-rsa-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "rsa-256-private-format"
+          host: "ssh-agent-rsa-256"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-rsa-256-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "rsa-512-private-format"
+          host: "ssh-agent-rsa-512"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-rsa-512-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "dsa-private-format"
+          host: "ssh-agent-dsa"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-dsa-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "ec-private-format"
+          host: "ssh-agent-ec"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-ec-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "ed25519-private-format"
+          host: "ssh-agent-ed25519"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+      name: "ssh-agent-ed25519-private-format"
+      nodeDescription: "SSH agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  securityRealm:
+    saml:
+      advancedConfiguration:
+        forceAuthn: true
+      binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      displayNameAttributeName: "displayName"
+      emailAttributeName: "mail"
+      encryptionData:
+        forceSignRedirectBindingAuthnRequest: true
+        keystorePassword: "password"
+        keystorePath: "/var/jenkins_home/saml-key.jks"
+        privateKeyAlias: "saml-key"
+        privateKeyPassword: "password"
+      groupsAttributeName: "groups"
+      idpMetadataConfiguration:
+        period: 0
+        url: "http://saml/simplesaml/saml2/idp/metadata.php"
+      logoutUrl: "http://saml/simplesaml"
+      maximumAuthenticationLifetime: 86400
+      usernameAttributeName: "uid"
+      usernameCaseConversion: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+unclassified:
+  location:
+    adminAddress: "admin@example.com"
+    url: "http://jenkins.example.com:8080/"
+jobs:
+  - script: >
+      folder('testjobs')
+  - file: "/usr/share/jenkins/ref/jobs/docker-agent.dsl"
+  - file: "/usr/share/jenkins/ref/jobs/ssh-agent.dsl"
+  - file: "/usr/share/jenkins/ref/jobs/ssh-docker-agent.dsl"
+  - file: "/usr/share/jenkins/ref/jobs/git.dsl"
