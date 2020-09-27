@@ -1,0 +1,3 @@
+PubkeyAcceptedKeyTypes rsa-sha2-512
+HostbasedAcceptedKeyTypes rsa-sha2-512
+HostKeyAlgorithms rsa-sha2-512
