@@ -48,6 +48,10 @@ generate-keys:
 	cat ssh-agent-ed25519/ssh/ed25519key.pub >> ssh-agent-ed25519/ssh/authorized_keys
 	cat ssh-agent-dsa/ssh/dsakey.pub >> ssh-agent-dsa/ssh/authorized_keys
 	cat ssh-agent-ec/ssh/ecdsakey.pub >> ssh-agent-ec/ssh/authorized_keys
+	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-14.04/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-16.04/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-18.04/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-20.04/ssh
 	$(MAKE) gen-jcasc-file
 
 ## @help:virtualenv:Create a Python virtual environment.

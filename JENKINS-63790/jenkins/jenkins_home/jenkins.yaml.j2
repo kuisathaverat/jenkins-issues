@@ -265,6 +265,78 @@ jenkins:
       retentionStrategy: "always"
 
   - permanent:
+      labelString: "ubuntu-14.04"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-ubuntu-14.04"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+      name: "Ubuntu-14.04"
+      nodeDescription: "SSH agent Ubuntu 14.04"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+
+  - permanent:
+      labelString: "ubuntu-16.04"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-ubuntu-16.04"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+      name: "Ubuntu-16.04"
+      nodeDescription: "SSH agent Ubuntu 16.04"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+
+  - permanent:
+      labelString: "ubuntu-18.04"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-ubuntu-18.04"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+      name: "Ubuntu-18.04"
+      nodeDescription: "SSH agent Ubuntu 18.04"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+
+  - permanent:
+      labelString: "ubuntu-20.04"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-ubuntu-20.04"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+      name: "Ubuntu-20.04"
+      nodeDescription: "SSH agent Ubuntu 20.04"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+
+  - permanent:
       labelString: "ssh-agent"
       launcher:
         ssh:

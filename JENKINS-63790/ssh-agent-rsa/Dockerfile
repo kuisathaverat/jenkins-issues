@@ -11,7 +11,8 @@ RUN chown -R root:root /root/ \
 RUN ssh-keygen -A
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/PermitRootLogin.*/PermitRootLogin yes/' \
-        -e 's/PasswordAuthentication no/PasswordAuthentication yes/'
+        -e 's/PasswordAuthentication no/PasswordAuthentication yes/' \
+        -e 's/#LogLevel INFO/LogLevel DEBUG1/'
 
 RUN cat /home/jenkins/.ssh/sshd_config >> /etc/ssh/sshd_config
 

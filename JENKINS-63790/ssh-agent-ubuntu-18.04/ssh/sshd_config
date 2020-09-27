@@ -1,0 +1,3 @@
+PubkeyAcceptedKeyTypes ssh-rsa
+HostbasedAcceptedKeyTypes ssh-rsa
+HostKeyAlgorithms ssh-rsa

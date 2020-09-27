@@ -83,7 +83,95 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-dsa
+
+  ssh-agent-ubuntu-14.04:
+    container_name: ssh-agent-ubuntu-14.04
+    build:
+      context: ./ssh-agent-ubuntu-14.04
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-ubuntu-14.04
+
+  ssh-agent-ubuntu-16.04:
+    container_name: ssh-agent-ubuntu-16.04
+    build:
+      context: ./ssh-agent-ubuntu-16.04
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-ubuntu-16.04
+
+  ssh-agent-ubuntu-18.04:
+    container_name: ssh-agent-ubuntu-18.04
+    build:
+      context: ./ssh-agent-ubuntu-18.04
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-ubuntu-18.04
+
+  ssh-agent-ubuntu-20.04:
+    container_name: ssh-agent-ubuntu-20.04
+    build:
+      context: ./ssh-agent-ubuntu-20.04
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-ubuntu-20.04
 
   ssh-agent-rsa:
     container_name: ssh-agent-rsa
@@ -105,7 +193,7 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-rsa
 
   ssh-agent-ec:
     container_name: ssh-agent-ec
@@ -127,7 +215,7 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-ec
 
   ssh-agent-ed25519:
     container_name: ssh-agent-ed25519
@@ -149,7 +237,7 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-ed25519
 
   ssh-agent-rsa-256:
     container_name: ssh-agent-rsa-256
@@ -171,7 +259,7 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-rsa-256
 
   ssh-agent-rsa-512:
     container_name: ssh-agent-rsa-512
@@ -193,6 +281,6 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent
+          - ssh-agent-rsa-512
 networks:
   network-test:
