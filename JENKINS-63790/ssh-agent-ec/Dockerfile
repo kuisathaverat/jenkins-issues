@@ -22,4 +22,4 @@ EXPOSE 22
 RUN echo 'export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/openjdk-11/bin' >> /etc/environment
 ENV PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/openjdk-11/bin
 ENTRYPOINT []
-CMD [ "/bin/sh", "-c", "/usr/sbin/sshd -D -p 22"]
+CMD [ "/bin/sh", "-c", "/usr/sbin/sshd -e -D -p 22"]

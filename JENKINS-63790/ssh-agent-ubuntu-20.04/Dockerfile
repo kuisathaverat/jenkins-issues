@@ -28,7 +28,9 @@ RUN ssh-keygen -A
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/PermitRootLogin.*/PermitRootLogin yes/' \
         -e 's/PasswordAuthentication no/PasswordAuthentication yes/' \
-        -e 's/LogLevel INFO/LogLevel DEBUG1/'
+        -e 's/LogLevel INFO/LogLevel DEBUG1/'; \
+    echo "HostKeyAlgorithms ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519" >> /etc/ssh/sshd_config
+
 RUN mkdir -p  /var/run/sshd
 
 RUN echo "password\npassword" | passwd root \
@@ -38,4 +40,4 @@ EXPOSE 22
 RUN echo 'export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin:/usr/lib/jvm/java-8-openjdk-amd64/bin' >> /etc/environment
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin:/usr/lib/jvm/java-8-openjdk-amd64/bin
 ENTRYPOINT []
-CMD [ "/bin/sh", "-c", "/usr/sbin/sshd -D -p 22"]
+CMD [ "/bin/sh", "-c", "/usr/sbin/sshd -e -D -p 22"]
