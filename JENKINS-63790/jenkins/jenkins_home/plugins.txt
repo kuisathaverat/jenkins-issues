@@ -7,3 +7,6 @@ configuration-as-code
 timestamper
 jdk-tool
 trilead-api:1.0.11
+ssh-credentials
+ssh-slaves
+ec2

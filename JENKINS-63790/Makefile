@@ -1,9 +1,20 @@
-JENKINS_TAG ?= 2.257
+JENKINS_TAG ?= 2.249.2
 VENV ?= .venv
 PYTHON ?= python3
 PIP ?= pip3
 
-export JENKINS_VERSION=$(JENKINS_TAG)
+export JENKINS_VERSION:=$(JENKINS_TAG)
+
+ifdef ID_RSA_USER
+	 ID_RSA=$$(cat ${HOME}/.ssh/id_rsa)
+endif
+
+ifdef PRIVATE_KEY_AWS
+	PRIVATE_KEY_AWS_DATA=$$(cat $(PRIVATE_KEY_AWS))
+endif
+
+SAML_ENABLED ?= true
+AGENTS_ENABLED ?= true
 
 .PHONY: help
 help:
@@ -66,14 +77,13 @@ virtualenv:
 .PHONY: gen-jcasc-file
 gen-jcasc-file: JCASC_FILE="./jenkins/jenkins_home/jenkins.yaml"
 gen-jcasc-file: virtualenv
-	echo "RSA key user"; \
-	read ID_RSA_USER; \
-	echo "RSA key password"; \
-	read ID_RSA_PASSWORD; \
 	source $(VENV)/bin/activate;\
-	ID_RSA_USER=$${ID_RSA_USER} \
-	ID_RSA=$$(cat ${HOME}/.ssh/id_rsa) \
-	ID_RSA_PASSWORD=$${ID_RSA_PASSWORD} \
+	ID_RSA_USER="$(ID_RSA_USER)" \
+	ID_RSA="$(ID_RSA)" \
+	ID_RSA_PASSWORD="$(ID_RSA_PASSWORD)" \
+	AWS_ACCESS_KEY_ID="$(AWS_ACCESS_KEY_ID)" \
+	AWS_SECRET_ACCESS_KEY="$(AWS_SECRET_ACCESS_KEY)" \
+	PRIVATE_KEY_AWS="$(PRIVATE_KEY_AWS_DATA)" \
 	PRIVATE_KEY_DSA=$$(cat ssh-agent-dsa/ssh/dsakey) \
 	PRIVATE_KEY_RSA=$$(cat ssh-agent-rsa/ssh/rsa-key) \
 	PRIVATE_KEY_RSA_PASSWORD="password" \
@@ -87,4 +97,5 @@ gen-jcasc-file: virtualenv
 	PRIVATE_KEY_RSA512=$$(cat ssh-agent-rsa512/ssh/rsa-512-key) \
 	PRIVATE_KEY_ED25519=$$(cat ssh-agent-ed25519/ssh/ed25519key) \
 	PRIVATE_KEY_EC=$$(cat ssh-agent-ec/ssh/ecdsakey) \
-	j2 --format=env $(JCASC_FILE).j2 -o $(JCASC_FILE)
+	DOCKER_URI="$(DOCKER_URI)" \
+	j2 --format=env $(JCASC_FILE).j2 -o $(JCASC_FILE) --customize customization.py
