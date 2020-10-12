@@ -175,10 +175,10 @@ services:
         aliases:
           - ssh-agent-ubuntu-20.04
 
-  ssh-agent-host-dsa:
-    container_name: ssh-agent-host-dsa
+  ssh-agent-ubuntu-14.04-dsa:
+    container_name: ssh-agent-ubuntu-14.04-dsa
     build:
-      context: ./ssh-agent-host-dsa
+      context: ./ssh-agent-ubuntu-14.04-dsa
       dockerfile: Dockerfile
     healthcheck:
       test: ["CMD-SHELL", "exit 0"]
@@ -195,7 +195,7 @@ services:
     networks:
       network-test:
         aliases:
-          - ssh-agent-host-dsa
+          - ssh-agent-ubuntu-14.04-dsa
 
   ssh-agent-host-ec:
     container_name: ssh-agent-host-ec

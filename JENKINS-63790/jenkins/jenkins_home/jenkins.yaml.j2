@@ -344,7 +344,7 @@ jenkins:
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
 
-{% for tag in ['14.04', '16.04', '18.04', '20.04'] %}
+{% for tag in ['14.04', '14.04-dsa', '16.04', '18.04', '20.04'] %}
   - permanent:
       labelString: "ubuntu-{{ tag }}"
       launcher:
@@ -363,7 +363,7 @@ jenkins:
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
 {% endfor %}
-{% for tag in ['dsa', 'ec', 'ed', 'rsa'] %}
+{% for tag in ['ec', 'ed', 'rsa'] %}
   - permanent:
       labelString: "host-key-{{ tag }}"
       launcher:
