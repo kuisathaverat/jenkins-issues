@@ -375,7 +375,7 @@ jenkins:
           port: 22
           retryWaitTime: 15
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+          javaPath: "/usr/local/openjdk-11/bin/java"
       name: "host-key-{{ tag }}"
       nodeDescription: "SSH agent Host key {{ tag }}"
       numExecutors: 1
