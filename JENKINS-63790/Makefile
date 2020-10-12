@@ -1,4 +1,4 @@
-JENKINS_TAG ?= 2.249.2
+JENKINS_TAG ?= 2.257
 VENV ?= .venv
 PYTHON ?= python3
 PIP ?= pip3
@@ -63,6 +63,10 @@ generate-keys:
 	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-16.04/ssh
 	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-18.04/ssh
 	cp -R ssh-agent-rsa/ssh ssh-agent-ubuntu-20.04/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-host-dsa/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-host-ec/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-host-ed/ssh
+	cp -R ssh-agent-rsa/ssh ssh-agent-host-rsa/ssh
 	$(MAKE) gen-jcasc-file
 
 ## @help:virtualenv:Create a Python virtual environment.
@@ -78,6 +82,8 @@ virtualenv:
 gen-jcasc-file: JCASC_FILE="./jenkins/jenkins_home/jenkins.yaml"
 gen-jcasc-file: virtualenv
 	source $(VENV)/bin/activate;\
+	AGENTS_ENABLED="$(AGENTS_ENABLED)" \
+	SAML_ENABLED="$(SAML_ENABLED)" \
 	ID_RSA_USER="$(ID_RSA_USER)" \
 	ID_RSA="$(ID_RSA)" \
 	ID_RSA_PASSWORD="$(ID_RSA_PASSWORD)" \

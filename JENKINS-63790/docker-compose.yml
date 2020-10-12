@@ -175,6 +175,94 @@ services:
         aliases:
           - ssh-agent-ubuntu-20.04
 
+  ssh-agent-host-dsa:
+    container_name: ssh-agent-host-dsa
+    build:
+      context: ./ssh-agent-host-dsa
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-host-dsa
+
+  ssh-agent-host-ec:
+    container_name: ssh-agent-host-ec
+    build:
+      context: ./ssh-agent-host-ec
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-host-ec
+
+  ssh-agent-host-ed:
+    container_name: ssh-agent-host-ed
+    build:
+      context: ./ssh-agent-host-ed
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-host-ed
+
+  ssh-agent-host-rsa:
+    container_name: ssh-agent-host-rsa
+    build:
+      context: ./ssh-agent-host-rsa
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      retries: 10
+      interval: 10s
+    depends_on:
+      jenkins:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    networks:
+      network-test:
+        aliases:
+          - ssh-agent-host-rsa
+
   ssh-agent-rsa:
     container_name: ssh-agent-rsa
     build:

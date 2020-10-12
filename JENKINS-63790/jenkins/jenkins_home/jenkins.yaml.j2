@@ -344,77 +344,44 @@ jenkins:
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
 
+{% for tag in ['14.04', '16.04', '18.04', '20.04'] %}
   - permanent:
-      labelString: "ubuntu-14.04"
+      labelString: "ubuntu-{{ tag }}"
       launcher:
         ssh:
           credentialsId: "user_password"
-          host: "ssh-agent-ubuntu-14.04"
+          host: "ssh-agent-ubuntu-{{ tag }}"
           launchTimeoutSeconds: 210
           maxNumRetries: 10
           port: 22
           retryWaitTime: 15
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
           javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
-      name: "Ubuntu-14.04"
-      nodeDescription: "SSH agent Ubuntu 14.04"
+      name: "Ubuntu-{{ tag }}"
+      nodeDescription: "SSH agent Ubuntu {{ tag }}"
       numExecutors: 1
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
-
+{% endfor %}
+{% for tag in ['dsa', 'ec', 'ed', 'rsa'] %}
   - permanent:
-      labelString: "ubuntu-16.04"
+      labelString: "host-key-{{ tag }}"
       launcher:
         ssh:
           credentialsId: "user_password"
-          host: "ssh-agent-ubuntu-16.04"
+          host: "ssh-agent-host-{{ tag }}"
           launchTimeoutSeconds: 210
           maxNumRetries: 10
           port: 22
           retryWaitTime: 15
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
           javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
-      name: "Ubuntu-16.04"
-      nodeDescription: "SSH agent Ubuntu 16.04"
+      name: "host-key-{{ tag }}"
+      nodeDescription: "SSH agent Host key {{ tag }}"
       numExecutors: 1
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
-
-  - permanent:
-      labelString: "ubuntu-18.04"
-      launcher:
-        ssh:
-          credentialsId: "user_password"
-          host: "ssh-agent-ubuntu-18.04"
-          launchTimeoutSeconds: 210
-          maxNumRetries: 10
-          port: 22
-          retryWaitTime: 15
-          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
-      name: "Ubuntu-18.04"
-      nodeDescription: "SSH agent Ubuntu 18.04"
-      numExecutors: 1
-      remoteFS: "/home/jenkins"
-      retentionStrategy: "always"
-
-  - permanent:
-      labelString: "ubuntu-20.04"
-      launcher:
-        ssh:
-          credentialsId: "user_password"
-          host: "ssh-agent-ubuntu-20.04"
-          launchTimeoutSeconds: 210
-          maxNumRetries: 10
-          port: 22
-          retryWaitTime: 15
-          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
-      name: "Ubuntu-20.04"
-      nodeDescription: "SSH agent Ubuntu 20.04"
-      numExecutors: 1
-      remoteFS: "/home/jenkins"
-      retentionStrategy: "always"
+{% endfor %}
 
   - permanent:
       labelString: "ssh-agent"
