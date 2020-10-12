@@ -11,3 +11,4 @@ GSSAPICleanupCredentials yes
 ClientAliveInterval 600
 ClientAliveCountMax 4
 Subsystem       sftp    /usr/lib/openssh/sftp-server
+HostKey /etc/ssh/ssh_host_dsa_key
