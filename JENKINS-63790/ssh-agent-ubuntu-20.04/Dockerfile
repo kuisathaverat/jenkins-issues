@@ -25,11 +25,7 @@ RUN chown -R root:root /root/ \
   && chmod 700 /root/.ssh \
   && chmod 600 /root/.ssh/*
 RUN ssh-keygen -A
-RUN sed -i /etc/ssh/sshd_config \
-        -e 's/PermitRootLogin.*/PermitRootLogin yes/' \
-        -e 's/PasswordAuthentication no/PasswordAuthentication yes/' \
-        -e 's/LogLevel INFO/LogLevel DEBUG1/'; \
-    echo "HostKeyAlgorithms ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519" >> /etc/ssh/sshd_config
+COPY ssh/sshd_config /etc/ssh/sshd_config
 
 RUN mkdir -p  /var/run/sshd
 

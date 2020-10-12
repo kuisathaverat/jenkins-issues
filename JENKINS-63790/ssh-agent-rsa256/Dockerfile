@@ -9,11 +9,7 @@ RUN chown -R root:root /root/ \
   && chmod 700 /root/.ssh \
   && chmod 600 /root/.ssh/*
 RUN ssh-keygen -A
-RUN sed -i /etc/ssh/sshd_config \
-        -e 's/PermitRootLogin.*/PermitRootLogin yes/' \
-        -e 's/#LogLevel INFO/LogLevel DEBUG1/'
-
-RUN cat /home/jenkins/.ssh/sshd_config >> /etc/ssh/sshd_config
+COPY ssh/sshd_config /etc/ssh/sshd_config
 
 RUN echo "password\npassword" | passwd root \
   && echo "password\npassword" | passwd jenkins
