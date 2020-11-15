@@ -44,7 +44,7 @@ services:
     environment:
       - SIMPLESAMLPHP_ADMIN_PASSWORD=admin
       - SIMPLESAMLPHP_SP_ENTITY_ID=http://jenkins.example.com:8080/securityRealm/finishLogin
-      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://jenkins.example.com:8080/securityRealm/finishLogin?client_name=SAML2Client
+      - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://jenkins.example.com:8080/securityRealm/finishLogin
       - SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://jenkins.example.com:8080/logout
     mem_limit: 1000m
     cpus: 0.5
