@@ -1,4 +1,4 @@
-JENKINS_TAG ?= 2.266
+JENKINS_TAG ?= 2.267
 VENV ?= .venv
 PYTHON ?= python3
 PIP ?= pip3
@@ -13,8 +13,8 @@ ifdef PRIVATE_KEY_AWS
 	PRIVATE_KEY_AWS_DATA=$$(cat $(PRIVATE_KEY_AWS))
 endif
 
-SAML_ENABLED ?= true
-AGENTS_ENABLED ?= false
+SAML_ENABLED ?= false
+AGENTS_ENABLED ?= true
 JOBS_ENABLED ?= false
 
 .PHONY: help

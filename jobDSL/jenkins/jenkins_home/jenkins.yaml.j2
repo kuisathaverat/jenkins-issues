@@ -363,6 +363,25 @@ jenkins:
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
 {% endfor %}
+{% for tag in ['ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'curve25519-sha256'] %}
+  - permanent:
+      labelString: "kex-{{ tag }}"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-{{ tag }}"
+          launchTimeoutSeconds: 210
+          maxNumRetries: 10
+          port: 22
+          retryWaitTime: 15
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          javaPath: "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+      name: "Kex-{{ tag }}"
+      nodeDescription: "SSH agent Kex {{ tag }}"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+{% endfor %}
 {% for tag in ['ec', 'ed', 'rsa'] %}
   - permanent:
       labelString: "host-key-{{ tag }}"
