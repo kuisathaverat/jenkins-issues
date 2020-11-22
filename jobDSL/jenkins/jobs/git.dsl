@@ -7,7 +7,7 @@ pipelineJob('testjobs/ssh-agent-git') {
           stages {
             stage ('test') {
               steps {
-                git credentialsId: 'github-ssh', url: 'git@github.com:jenkinsci/ssh-slaves-plugin.git'
+                git credentialsId: 'local-id-rsa', url: 'git@github.com:jenkinsci/ssh-slaves-plugin.git'
               }
             }
           }
