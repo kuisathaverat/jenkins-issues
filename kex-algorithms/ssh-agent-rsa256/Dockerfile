@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 USER root
 
 ENV TZ=Etc/UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y -qq \
   &&  apt-get install -y -qq \
     --no-install-recommends \
