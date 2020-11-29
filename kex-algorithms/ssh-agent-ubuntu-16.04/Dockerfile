@@ -1,10 +1,14 @@
 FROM ubuntu:16.04
 USER root
 
-RUN apt-get update -y -qq \
+ENV TZ=Etc/UTC
+RUN DEBIAN_FRONTEND="noninteractive" apt-get update -y -qq \
   &&  apt-get install -y -qq \
+    --no-install-recommends \
     openssh-server \
-    software-properties-common
+    software-properties-common \
+    git \
+    make
 
 RUN add-apt-repository ppa:openjdk-r/ppa -y \
   && apt-get update -y -qq \
