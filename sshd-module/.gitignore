@@ -1,0 +1,7 @@
+__pycache__
+.DS_Store
+.venv
+/**/jenkins/jenkins_home/jenkins.yaml
+jenkins/jenkins_home/plugins/sshd.jpi
+jenkins/war/jenkins.war
+jenkins-cli.jar

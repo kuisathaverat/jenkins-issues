@@ -1,0 +1,38 @@
+version: "2.4"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+      args:
+        - TAG=${JENKINS_VERSION}
+    environment:
+      JAVA_OPTS: >-
+        -Djenkins.install.runSetupWizard=false
+        -Dhudson.model.UsageStatistics.disabled=true
+        -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+    mem_limit: 1000m
+    privileged: true
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    ports:
+      - 8080:8080
+      - 5005:5005
+      - 2222:2222
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8080"]
+      retries: 10
+      interval: 20s
+    user: jenkins
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      network-test:
+        aliases:
+          - jenkins
+networks:
+  network-test:

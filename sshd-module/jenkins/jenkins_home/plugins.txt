@@ -1,0 +1,13 @@
+git
+job-dsl
+saml
+docker-plugin
+pipeline-model-definition
+configuration-as-code
+timestamper
+jdk-tool
+trilead-api
+ssh-credentials
+ssh-slaves
+ec2
+workflow-cps-global-lib
