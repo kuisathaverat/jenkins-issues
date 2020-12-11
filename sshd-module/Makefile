@@ -19,7 +19,9 @@ help:
 ## @help:start:Start the Jenkins instance.
 .PHONY: start
 start: gen-jcasc-file
-	docker-compose up --force-recreate --build --remove-orphans;
+	docker-compose build --force-rm --no-cache
+	docker-compose start
+#	docker-compose start --force-recreate --build --remove-orphans;
 
 ## @help:stop:Stop the Jenkins instance.
 .PHONY: stop
