@@ -34,5 +34,10 @@ services:
       network-test:
         aliases:
           - jenkins
+  wait:
+    image: busybox
+    depends_on:
+      jenkins:
+        condition: service_healthy
 networks:
   network-test:

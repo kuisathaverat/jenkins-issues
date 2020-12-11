@@ -20,6 +20,7 @@ help:
 .PHONY: start
 start: gen-jcasc-file
 	docker-compose build --force-rm --no-cache
+	docker-compose up --no-start
 	docker-compose start
 #	docker-compose start --force-recreate --build --remove-orphans;
 
