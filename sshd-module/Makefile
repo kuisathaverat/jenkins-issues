@@ -68,6 +68,7 @@ download-dependencies:
 test:
 	@echo "**************************************** Clean ****************************************"
 	@rm -fr jenkins-cli.jar workflowLibs
+	@chmod 0600 ./rsa-512-key
 	@echo "**************************************** SSH connection test ****************************************"
 	@ssh -p 2222 -i ./rsa-512-key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@localhost who-am-i
 	@echo "**************************************** Jenkins CLI SSH connection test ****************************************"
