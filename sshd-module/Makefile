@@ -57,8 +57,8 @@ download-plugin-manager:
 .PHONY: download-dependencies
 download-dependencies:
 	export JENKINS_URL="https://ci.jenkins.io/job/Core/job/jenkins/job/PR-5049/22/artifact/org/jenkins-ci/main/jenkins-war/2.270-rc30619.ae60983c246a/jenkins-war-2.270-rc30619.ae60983c246a.war"; \
+	curl -fsSL -o jenkins/war/jenkins.war $${JENKINS_URL};
 	export SSHD_MODULE_URL="https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/modules/sshd/3.0-rc166.9325e5d37325/sshd-3.0-rc166.9325e5d37325.hpi"; \
-	curl -fsSL -o jenkins/war/jenkins.war $${JENKINS_URL}; \
 	curl -fsSL -o jenkins/jenkins_home/plugins/sshd.jpi $${SSHD_MODULE_URL};
 
 ## @help:test:Run a set of ssh connection tests againts the SSH Jenkins instance.
