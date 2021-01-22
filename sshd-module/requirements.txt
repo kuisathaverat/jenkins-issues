@@ -1,2 +1,4 @@
 kubernetes
 j2cli
+pytest
+docker-compose

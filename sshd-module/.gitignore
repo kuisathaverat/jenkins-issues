@@ -5,4 +5,5 @@ __pycache__
 jenkins-cli.jar
 jenkins/jenkins_home/plugins/sshd.jpi
 jenkins/war/jenkins.war
+junit-report.xml
 workflowLibs

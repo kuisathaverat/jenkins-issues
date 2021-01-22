@@ -36,12 +36,3 @@ unclassified:
   location:
     adminAddress: "admin@example.com"
     url: "http://jenkins.example.com:8080/"
-{% if JOBS_ENABLED == "true" %}
-jobs:
-  - script: >
-      folder('testjobs')
-  - file: "/usr/share/jenkins/ref/jobs/docker-agent.dsl"
-  - file: "/usr/share/jenkins/ref/jobs/ssh-agent.dsl"
-  - file: "/usr/share/jenkins/ref/jobs/ssh-docker-agent.dsl"
-  - file: "/usr/share/jenkins/ref/jobs/git.dsl"
-{% endif %}
