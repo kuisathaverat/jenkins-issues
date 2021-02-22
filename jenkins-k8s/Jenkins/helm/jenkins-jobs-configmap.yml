@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-jobs
+data:
+  helloWorld-helm.dsl: |
+    pipelineJob('ch05/helloWorld-helm') {
+      definition {
+        cps {
+          script("""\
+            pipeline {
+              agent any
+              stages {
+                stage ('Hello') {
+                  steps {
+                    echo "hello World"
+                  }
+                }
+              }
+            }""".stripIndent())
+            sandbox(true)
+        }
+      }
+    }

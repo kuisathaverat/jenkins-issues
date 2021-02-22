@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+service Users {
+  rpc Signup(SignupRequest) returns (Response) {}
+  rpc Delete(DeleteRequest) returns (Response) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+}
+
+message SignupRequest {
+  string name = 1;
+  string surname = 2;
+  string address = 3;
+  string login = 4;
+  string email = 5;
+  string password = 6;
+}
+
+message DeleteRequest {
+  string login = 1;
+}
+
+message LoginRequest {
+  string user = 1;
+  string password = 2;
+}
+
+message Response {
+  int32 code = 1;
+  string message = 2;
+}
+
+message LoginResponse {
+  int32 code = 1;
+  string message = 2;
+}

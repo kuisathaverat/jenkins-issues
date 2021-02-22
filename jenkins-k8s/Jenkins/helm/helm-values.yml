@@ -1,0 +1,179 @@
+master:
+  image: "jenkins/jenkins"
+  tag: "2.242"
+  jenkinsOpts: --httpPort=9080 --httpsPort=9443 --httpsCertificate=/var/lib/jenkins/domain.crt --httpsPrivateKey=/var/lib/jenkins/domain.key
+  servicePort: 9080
+  targetPort: 9080
+  slaveListenerPort: 50000
+  extraPorts:
+    - name: tls
+      port: 9443
+    - name: agent
+      port: 50000
+  installPlugins:
+    - branch-api:2.6.0
+    - cloudbees-folder:6.14
+    - configuration-as-code:1.43
+    - credentials-binding:1.23
+    - docker-workflow:1.24
+    - docker:1.2.0
+    - git:4.2.2
+    - job-dsl:1.77
+    - kubernetes:1.27.1
+    - mock-security-realm:1.4
+    - pipeline-model-definition:1.6.0
+    - role-strategy:3.0
+    - ssh-slaves:1.31.2
+    - timestamper:1.11.5
+    - workflow-multibranch:2.22
+  containerEnv:
+    - name: JENKINS_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: jenkins-password
+          key: password
+  JCasC:
+    enabled: true
+    defaultConfig: false
+    configScripts:
+      jcasc-config: |
+        jenkins:
+          systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
+          numExecutors: 0
+          securityRealm:
+            local:
+              allowsSignup: false
+              users:
+                - id: "jenkins"
+                  password: "${JENKINS_PASSWORD}"
+                - id: "admin"
+                  password: "${JENKINS_PASSWORD}"
+                - id: "curie"
+                  password: "${JENKINS_PASSWORD}"
+                - id: "tesla"
+                  password: "${JENKINS_PASSWORD}"
+                - id: "newton"
+                  password: "${JENKINS_PASSWORD}"
+          authorizationStrategy:
+            roleBased:
+              roles:
+                global:
+                - assignments:
+                  - "jenkins"
+                  - "admin"
+                  name: "admin"
+                  pattern: ".*"
+                  permissions:
+                  - "Job/Move"
+                  - "Job/Build"
+                  - "Credentials/Delete"
+                  - "Credentials/ManageDomains"
+                  - "View/Create"
+                  - "Agent/Configure"
+                  - "Job/Read"
+                  - "Credentials/Update"
+                  - "Agent/Create"
+                  - "Job/Delete"
+                  - "Agent/Build"
+                  - "View/Configure"
+                  - "Agent/Provision"
+                  - "SCM/Tag"
+                  - "Job/Create"
+                  - "Job/Discover"
+                  - "Credentials/View"
+                  - "Agent/Connect"
+                  - "Agent/Delete"
+                  - "Run/Replay"
+                  - "Agent/Disconnect"
+                  - "Run/Delete"
+                  - "Job/Cancel"
+                  - "Overall/Read"
+                  - "Run/Update"
+                  - "Credentials/Create"
+                  - "Overall/Administer"
+                  - "View/Delete"
+                  - "Job/Configure"
+                  - "Job/Workspace"
+                  - "View/Read"
+                - assignments:
+                  - "tesla"
+                  - "curie"
+                  - "newton"
+                  name: "developers"
+                  pattern: ".*"
+                  permissions:
+                  - "Agent/Provision"
+                  - "Job/Cancel"
+                  - "Overall/Read"
+                  - "Job/Build"
+                  - "Job/Discover"
+                  - "Job/Read"
+                  - "Agent/Build"
+                  - "Job/Workspace"
+                  - "View/Read"
+                  - "Credentials/View"
+                  - "Run/Replay"
+                - assignments:
+                  - "anonymous"
+                  name: "read-only"
+                  pattern: ".*"
+                  permissions:
+                  - "Overall/Read"
+                  - "Job/Discover"
+                  - "Job/Read"
+                  - "View/Read"
+          clouds:
+          - kubernetes:
+              connectTimeout: 30
+              containerCap: 10
+              containerCapStr: "10"
+              jenkinsUrl: "http://jenkins:9080"
+              name: "kubernetes"
+              readTimeout: 45
+              templates:
+              - label: "k8s-agent"
+                name: "k8s-agent"
+                nodeUsageMode: "NORMAL"
+                yamlMergeStrategy: "override"
+        unclassified:
+          gitscm:
+            globalConfigName: jenkins
+            globalConfigEmail: jenkins@example.com
+          location:
+            adminAddress: "admin@example.com"
+            url: "https://jenkins:9443/"
+        jobs:
+          - script: >
+              folder('ch05')
+          - file: "/usr/share/jenkins/ref/jobs/helloWorld-helm.dsl"
+  ingress:
+    enabled: true
+    apiVersion: networking.k8s.io/v1
+    annotations:
+      ingress.kubernetes.io/ssl-redirect: "true"
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+#      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    path: /
+    hosts:
+      - jenkins.example.com
+    tls:
+      - hosts:
+        - jenkins.example.com
+        secretName: jenkins-tls
+agent:
+  enabled: true
+persistence:
+  volumes:
+    - name: jenkins-jobs
+      configMap:
+        name: jenkins-jobs
+    - name: jenkins-tls
+      secret:
+        secretName: jenkins-tls
+        defaultMode: 0600
+  mounts:
+    - mountPath: /usr/share/jenkins/ref/jobs
+      name: jenkins-jobs
+    - mountPath: /var/lib/jenkins/
+      name: jenkins-tls
