@@ -1,0 +1,56 @@
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  securityRealm:
+    saml:
+      advancedConfiguration:
+        forceAuthn: true
+      binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      displayNameAttributeName: "displayName"
+      emailAttributeName: "mail"
+      encryptionData:
+        forceSignRedirectBindingAuthnRequest: true
+        keystorePassword: "password"
+        keystorePath: "/var/jenkins_home/saml-key.jks"
+        privateKeyAlias: "saml-key"
+        privateKeyPassword: "password"
+      groupsAttributeName: "groups"
+      idpMetadataConfiguration:
+        period: 0
+        url: "http://saml/simplesaml/saml2/idp/metadata.php"
+      logoutUrl: "http://saml/simplesaml"
+      maximumAuthenticationLifetime: 86400
+      usernameAttributeName: "uid"
+      usernameCaseConversion: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+unclassified:
+  location:
+    adminAddress: "admin@example.com"
+    url: "http://jenkins.example.com:8080/"
