@@ -1,4 +1,4 @@
-JENKINS_TAG ?= 2.277.4-lts-centos7
+JENKINS_TAG ?= 2.277.4-lts-jdk11
 
 VENV ?= .venv
 PYTHON ?= python3

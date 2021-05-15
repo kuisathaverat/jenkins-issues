@@ -8,10 +8,11 @@ services:
       args:
         - TAG=${JENKINS_VERSION}
     environment:
+      #        -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
       JAVA_OPTS: >-
         -Djenkins.install.runSetupWizard=false
         -Dhudson.model.UsageStatistics.disabled=true
-        -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
     mem_limit: 1000m
     cpus: 0.5
     privileged: true
