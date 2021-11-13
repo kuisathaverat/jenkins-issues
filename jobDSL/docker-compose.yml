@@ -12,8 +12,6 @@ services:
         -Djenkins.install.runSetupWizard=false
         -Dhudson.model.UsageStatistics.disabled=true
         -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
-    mem_limit: 1000m
-    cpus: 0.5
     privileged: true
     logging:
       driver: 'json-file'
@@ -46,8 +44,6 @@ services:
       - SIMPLESAMLPHP_SP_ENTITY_ID=http://jenkins.example.com:8080/securityRealm/finishLogin
       - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://jenkins.example.com:8080/securityRealm/finishLogin
       - SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://jenkins.example.com:8080/logout
-    mem_limit: 1000m
-    cpus: 0.5
     privileged: true
     logging:
       driver: 'json-file'

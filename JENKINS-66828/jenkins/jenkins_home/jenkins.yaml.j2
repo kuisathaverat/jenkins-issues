@@ -1,0 +1,16 @@
+jenkins:
+  securityRealm:
+    saml:
+      binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      displayNameAttributeName: "displayName"
+      emailAttributeName: "mail"
+      encryptionData:
+        forceSignRedirectBindingAuthnRequest: false
+        wantsAssertionsSigned: false
+      groupsAttributeName: "groups"
+      idpMetadataConfiguration:
+        period: 0
+        url: "http://saml/simplesaml/saml2/idp/metadata.php"
+      maximumAuthenticationLifetime: 86400
+      usernameAttributeName: "uid"
+      usernameCaseConversion: "none"
