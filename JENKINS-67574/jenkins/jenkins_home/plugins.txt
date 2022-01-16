@@ -1,0 +1,3 @@
+configuration-as-code
+matrix-auth
+saml::https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/plugins/saml/2.0.10-rc264.aab52e13e9be/saml-2.0.10-rc264.aab52e13e9be.hpi
