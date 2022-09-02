@@ -1,3 +1,3 @@
 configuration-as-code
 matrix-auth
-saml::https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/plugins/saml/4.355.vcc70634e5907/saml-4.355.vcc70634e5907.hpi
+saml::https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/plugins/saml/4.358.vf36dc90827f5/saml-4.358.vf36dc90827f5.hpi
