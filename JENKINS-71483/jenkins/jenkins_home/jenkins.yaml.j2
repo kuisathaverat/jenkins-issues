@@ -1,0 +1,58 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "user_password"
+          id: "user_password"
+          password: "password§"
+          scope: GLOBAL
+          username: "jenkins"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  clouds:
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "ssh-agent"
+      launcher:
+        ssh:
+          credentialsId: "user_password"
+          host: "ssh-agent-rsa"
+          javaPath: "/usr/local/openjdk-11/bin/java"
+          port: 22
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "user+password"
+      nodeDescription: "SSH agent"
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "password"
+unclassified:
+  location:
+    adminAddress: "admin@example.com"
+    url: "http://jenkins.example.com:8080/"
+

@@ -1,0 +1,7 @@
+git
+pipeline-model-definition
+configuration-as-code
+timestamper
+jdk-tool
+ssh-credentials
+ssh-slaves
