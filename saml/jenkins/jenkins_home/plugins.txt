@@ -1,0 +1,4 @@
+configuration-as-code
+matrix-auth
+saml:incrementals;org.jenkins-ci.plugins;4.559.v5ce28cc29597
+jackson2-api:2.19.0-404.vb_b_0fd2fea_e10
